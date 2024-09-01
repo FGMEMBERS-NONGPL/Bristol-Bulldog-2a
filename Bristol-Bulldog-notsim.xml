@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!--  Bristol Bulldog, Alpahsim, LesterBoffo modded
+Specifications (Bulldog IIa)
+
+  Data from Bristol Aircraft Since 1910[19]
+
+General characteristics
+
+    Crew: 1
+    Length: 25 ft 2 in (7.67 m)
+    Wingspan: 33 ft 10 in (10.31 m)
+    Height: 8 ft 9 in (2.67 m)
+    Wing area: 307 sq ft (28.5 m2)
+    Airfoil: Bristol 1A, both wings. Barnes and Luff books incorrect, may have been referencing the Bristol Pup[20]
+    Empty weight: 2,205 lb (1,000 kg)
+    Max takeoff weight: 3,490 lb (1,583 kg)
+    Powerplant: 1 × Bristol Jupiter VIIF 9-cylinder air-cooled radial piston engine, 490 hp (370 kW)
+    Propellers: 2-bladed wooden fixed-pitch propeller
+
+Performance
+
+    Maximum speed: 178 mph (286 km/h, 155 kn)
+    Service ceiling: 29,300 ft (8,900 m)
+
+Armament
+
+    Guns: 2 × 0.303 in (7.7 mm) Vickers machine guns
+    Bombs: 4 × 20 lb (9 kg) bombs
+-->
+
+<airplane mass="2617" version="YASIM_VERSION_CURRENT">
+
+  <!-- Approach configuration -->
+  <approach speed="48" aoa="5" fuel="0.4">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="1"/>
+    <control-setting axis="/controls/flight/flaps" value="1"/>
+  </approach>
+
+  <!-- Cruise configuration -->
+  <cruise speed="158" alt="12500" fuel="0.6">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.78"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="0.56"/>
+    <control-setting axis="/controls/flight/flaps" value="0"/>
+  </cruise>
+
+  <cockpit x="0.571" y="0" z="1.039"/>
+
+  <!-- spinner -->
+  <fuselage ax=" 2.5203" ay="0" az="0.00" bx=" 2.086" by="0" bz="0.00" width="0.54" taper="0.08" midpoint="1"/>
+  
+  <!-- eng-fairing -->
+  <fuselage ax=" 2.086" ay="0" az="0.00" bx="1.523" by="0" bz="0.00" width="0.993" taper="0.65" midpoint="1"/>
+  
+  
+  <!-- fuse-body -->
+  <fuselage ax="1.523" ay="0" az="0.00" bx="0.138" by="0" bz="0.068" width="1.08" taper="0.85" midpoint="1"/>
+  <fuselage ax="0.138" ay="0" az="0.068" bx=" -1.032" by="0" bz="0.065" width="1.45" taper="0.87" midpoint="0" cy="3.2" cz="2.2"/>
+  <fuselage ax="-1.032" ay="0" az="0.065" bx="-4.162" by="0" bz="0.122" width="1.40" taper="0.20" midpoint="0" cy="2.6" cz="1.7"/>
+
+
+    <wing x="0.376" y="0" z="0.975"
+        chord="1.69"
+        length="5.148"
+        taper="1.0"
+		incidence="1.1"
+		washout="0.5"
+		idrag="0.28"
+		sweep="0"
+        dihedral="5"
+        camber="0.003">
+        <stall aoa="17" width="5" peak="2.19"/>
+        <flap1 start="0.507" end="0.89" lift="1.25" drag="1.05"/>
+        <control-input control="FLAP1" axis="/controls/flight/aileron" split="true"/>
+        <control-input control="FLAP1" axis="/controls/flight/aileron-trim" split="true"/>
+        <control-output control="FLAP1" side="left" prop="/surface-positions/left-aileron-pos-norm"/>
+        <control-output control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
+  </wing>
+
+  <mstab x="0.05" y="0.47" z="-0.537"
+         chord="1.29"
+         length="3.748"
+         taper="1.0"
+		 incidence="1.1"
+		 washout="0.5"
+		 idrag="0.3"
+		 sweep="0"
+         dihedral="5"
+         camber="0.003">
+         <stall aoa="17" width="5" peak="2.19"/>
+  </mstab>
+
+  <hstab x="-3.855" y="0" z="0.27"
+         chord="1.19"
+         length="1.75"
+         taper="0.0"
+         sweep="0">
+         <stall aoa="18" width="3" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.40" drag="1.1"/>
+
+         <control-input control="FLAP0" axis="/controls/flight/elevator"/>
+         <control-input control="FLAP0" axis="/controls/flight/elevator-trim"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+  </hstab>
+
+  <vstab x="-4.197" y="0" z="0.707"
+         chord="1.42"
+         length="1.674"
+         taper="0.46"
+         sweep="23">
+         <stall aoa="18" width="3" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.2" drag="1.1"/>
+
+         <control-input control="FLAP0" axis="/controls/flight/rudder"  invert="true"/>
+         <control-input control="FLAP0" axis="/controls/flight/rudder-trim"  invert="true"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" min="1" max="-1"/>
+  </vstab>
+
+  <!-- Engines   source       : https://en.wikipedia.org/wiki/Bristol_Mercury
+  
+               Bristol Jupiter VIIF
+    (1929) 480 hp (360 kW); version of Jupiter VII with forged cylinder heads.
+
+Specifications (Jupiter XFA)
+
+Data from Lumsden[20]
+General characteristics
+
+    Type: Nine-cylinder, naturally aspirated, air-cooled radial engine
+    Bore: 5.75 in (146 mm)
+    Stroke: 7.5 in (190 mm)
+    Displacement: 1,753 in3 (28.7 L)
+    Diameter: 54.5 in (1,384 mm)
+    Dry weight: 995 lb (451 kg)
+
+Components
+
+    Valvetrain: Overhead poppet valve, four valves per cylinder, two intake and two exhaust
+    Supercharger: Single speed, single stage
+    Fuel type: 73-77 octane petrol
+    Cooling system: Air-cooled
+
+Performance
+
+    Power output: * 550 hp (414 kW) at 2,200 rpm at 11,000 ft (3,350 m) - maximum power limited to five minutes operation.
+    525 hp (391 kW) at 2,000 rpm - maximum continuous power at 11,000 ft (3,350 m)
+    483 hp (360 kW) at 2,000 rpm - takeoff power
+    Specific power: 0.31 hp/in3 (14.4 kW/L)
+    Compression ratio: 5.3:1
+    Power-to-weight ratio: 0.55 hp/lb (0.92 kW/kg)
+  -->
+  <propeller x="1.877" y="0" z="0.00"
+             mass="995"
+             moment="-9"
+             radius="1.38"
+             cruise-speed="128"
+             cruise-rpm="2080"
+             cruise-power="410"
+             cruise-alt="14500"
+             takeoff-power="480"
+             takeoff-rpm="2200">
+             <actionpt x="2.216" y="0" z="0.0"/>
+             <piston-engine eng-power="480"
+                            eng-rpm="2200"
+                            displacement="1753"
+							bore="5.75"
+							stroke="7.5"
+							min-throttle="0.045"
+                            compression="5.31">
+                            <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle"/>
+                            <control-input control="STARTER" axis="/controls/engines/engine[0]/starter"/>
+                            <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos"/>
+                            <control-input control="MIXTURE" axis="/controls/engines/engine[0]/mixture"/>
+              </piston-engine>
+  </propeller>
+
+  <!-- Left wheel -->
+  <gear x="0.935" y="0.896" z="-1.574"
+        compression="0.2"
+		damping="0.4"
+        rebound-damping="0.7" 
+        spring="1.38">
+        <control-input axis="/controls/gear/brake-left" control="BRAKE" split="true"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE" split="true"/>
+  </gear>
+
+  <!-- Right wheel -->
+  <gear x="0.935" y="-0.896" z="-1.574"
+        compression="0.2"
+		damping="0.4"
+        rebound-damping="0.7"		
+        spring="1.38">
+        <control-input axis="/controls/gear/brake-right" control="BRAKE" split="true"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE" split="true"/>
+  </gear>
+
+  <!-- Tail wheel -->
+  <gear x="-3.984" y="0" z="-0.457"
+        compression="0.1" 
+        spring="0.8">
+        <control-input axis="/controls/flight/rudder" control="STEER" src0="-1.0" src1="1.0" dst0="0.5" dst1="-0.5"/>
+  </gear>
+
+  <tank x="0.2" y="0" z="-0.68" capacity="440"/>
+  
+        <!-- pilot weight -->
+  <weight x="-0.21" y="0.0" z="0.28" mass-prop="/sim/weight[0]/weight-lb"/>
+
+  <ballast x="-0.83" y="0" z="-1.10" mass="200"/>
+
+</airplane>

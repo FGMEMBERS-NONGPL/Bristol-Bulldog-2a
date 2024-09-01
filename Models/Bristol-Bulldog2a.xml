@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>Bristol_Bulldog2a.ac</path>
+
+      <nasal>
+    <load>
+      var livery_update = aircraft.livery_update.new("Aircraft/Bristol-Bulldog-2a/Models/Liveries", 10);
+
+      var self = cmdarg();
+
+      var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
+      var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
+      
+      var crew_door = self.getNode("instrumentation/doors/crew/position-norm", 1);
+      var passenger_door = self.getNode("instrumentation/doors/passenger/position-norm", 1);
+    
+      crew_door.alias(float_0);
+      passenger_door.alias(float_1);
+    </load>
+
+    <unload>
+      livery_update.stop();
+      crew_door.unalias();
+      passenger_door.unalias();
+    </unload>
+  </nasal>
+
+  <animation>
+    <type>material</type>
+    <object-name>spinner</object-name>
+    <object-name>LG-fairings</object-name>
+    <object-name>engbits</object-name>
+    <object-name>engheads</object-name>
+    <object-name>windshieldframe</object-name>
+    <object-name>navlitehaus</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>eng-texture</texture-prop>
+    <texture>BDGBP1.png</texture>
+ </animation>
+ 
+   <animation>
+    <type>material</type>
+    <object-name>exhaustring</object-name>>
+    <object-name>enginefairings</object-name>
+    <object-name>fueltanks</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>eng-texture</texture-prop>
+    <texture>BDGBP2.png</texture>
+ </animation>
+
+ <animation>
+    <type>material</type>
+    <object-name>fuselage</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>fuse-texture</texture-prop>
+    <texture>BDGFus.png</texture>
+  </animation> 
+  
+    <effect>
+     <inherits-from>Effects/model-transparent</inherits-from>
+	<condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+      <object-name>propdisk</object-name>
+      <object-name>windshield</object-name>
+   </effect>
+   
+ 
+   <!-- <name>Effects/normalmap-reflection</name> -->
+   
+  <effect>
+    <inherits-from>Effects/model-pbr</inherits-from>
+    <object-name>exhaustring</object-name>
+    <object-name>spinner</object-name>
+    <object-name>enginefairings</object-name>
+    <object-name>engbits</object-name>
+    <object-name>engheads</object-name>
+    <object-name>windshieldframe</object-name>
+    <object-name>LG-fairings</object-name>
+    <object-name>navlitehaus</object-name>
+    <object-name>fuselage</object-name>
+    <object-name>fueltanks</object-name>
+  </effect>
+  
+    <effect>
+    <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
+    <object-name>exhaustring</object-name>
+    <object-name>spinner</object-name>
+    <object-name>enginefairings</object-name>
+    <object-name>engbits</object-name>
+    <object-name>engheads</object-name>
+    <object-name>windshieldframe</object-name>
+    <object-name>LG-fairings</object-name>
+    <object-name>navlitehaus</object-name>
+    <object-name>fuselage</object-name>
+    <object-name>fueltanks</object-name>
+  </effect>
+
+
+
+   <!-- pilot figure -->
+  <model>
+    <path>Aircraft/Bristol-Bulldog-2a/Models/Pilot/pilot.xml</path>
+    <offsets>
+      <x-m> 0.33 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.03 </z-m>
+    </offsets>
+  </model>
+
+
+
+<!-- Panel and instruments --> 
+  <model>
+    <path>Aircraft/Bristol-Bulldog-2a/Models/instruments/panel.xml</path>
+    <offsets>
+      <x-m>  0.00 </x-m>
+      <y-m>  0.00 </y-m>
+      <z-m>  0.00 </z-m>
+    </offsets>
+  </model>
+
+<model>
+ <path>Aircraft/Bristol-Bulldog-2a/Models/effects/exhaust/exhaustsmoke.xml</path>
+  <offsets>
+   <x-m> -0.302</x-m>
+   <y-m> -0.403</y-m>
+   <z-m> -0.796</z-m>
+  <heading-deg>0</heading-deg>
+   <roll-deg>    0 </roll-deg>
+   <pitch-deg>  0 </pitch-deg>
+ </offsets>
+</model>
+
+<model>
+ <path>Aircraft/Bristol-Bulldog-2a/Models/effects/exhaust/exhaustsmoke.xml</path>
+  <offsets>
+   <x-m> -0.302</x-m>
+   <y-m>  0.403</y-m>
+   <z-m> -0.796</z-m>
+  <heading-deg>0</heading-deg>
+   <roll-deg>    0 </roll-deg>
+   <pitch-deg>   0 </pitch-deg>
+ </offsets>
+</model>
+
+  <model>
+    <path>Aircraft/Bristol-Bulldog-2a/Models/effects/cranking/cranking.xml</path>
+    <offsets>
+   <x-m> -0.302</x-m>
+   <y-m> -0.403</y-m>
+   <z-m> -0.796</z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>  0 </pitch-deg>
+      <heading-deg> -45 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Bristol-Bulldog-2a/Models/effects/cranking/cranking.xml</path>
+    <offsets>
+   <x-m> -0.302</x-m>
+   <y-m> 0.403</y-m>
+   <z-m> -0.796</z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>  0 </pitch-deg>
+      <heading-deg> -45 </heading-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Bristol-Bulldog-2a/Models/Effects/guns/fire.xml</path>
+    <offsets>
+      <x-m> -1.0958 </x-m>
+      <y-m>  -0.439 </y-m>
+      <z-m>  0.5698 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg> 180 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+  
+    <model>
+    <path>Aircraft/Bristol-Bulldog-2a/Models/Effects/guns/fire.xml</path>
+    <offsets>
+      <x-m> -1.0958 </x-m>
+      <y-m>  0.439 </y-m>
+      <z-m>  0.5698 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg> 180 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Propeller -->
+
+  <animation>
+    <name>PropComplete</name>
+    <object-name>propdisk</object-name>
+    <object-name>propeller</object-name>
+    <object-name>spinner</object-name>
+  </animation>
+ 
+  <!-- Selection of prop from rpm -->
+  <animation>
+    <type>select</type>
+    <object-name>propdisk</object-name>
+    <condition>
+      <greater-than>
+        <property>engines/engine[0]/rpm</property>
+        <value>320</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>propeller</object-name>
+    <condition>
+      <less-than>
+        <property>engines/engine[0]/rpm</property>
+	<value>350</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <!-- Rotation prop and propdisc -->
+  <animation>
+    <type>spin</type>
+     <object-name>PropComplete</object-name>
+    <condition>
+      <greater-than>
+        <property>engines/engine[0]/rpm</property>
+        <value> 12 </value>
+      </greater-than>
+    </condition>
+     <property>engines/engine[0]/rpm</property>
+    <factor> -1.0 </factor>
+    <center>
+      <x-m> -1.83 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.0 </z-m>
+    </center>
+    <axis>
+      <x> -1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- cockpit -->
+
+	<!--  pilot's joystick -->
+	<animation>
+		<object-name>joystick</object-name>
+		<property>controls/flight/aileron</property>
+		<type>rotate</type>
+		<factor>8</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.0511</x-m>
+			<y-m>0.0</y-m>
+			<z-m>-0.2462</z-m>
+		</center>
+	</animation>
+	<animation>
+		<object-name>joystick</object-name>
+		<property>controls/flight/elevator</property>
+		<type>rotate</type>
+		<factor>8</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.0511</x-m>
+			<y-m>0.0</y-m>
+			<z-m>-0.2462</z-m>
+		</center>
+	</animation>
+
+ <!-- rudderbar -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>rudderbar</object-name>
+  <property>controls/flight/rudder</property>
+  <factor>-27</factor>
+  <center>
+   <x-m> -0.172</x-m>
+   <y-m> 0.000</y-m>
+   <z-m>-0.384</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+
+
+
+<!-- throttle -->
+ 
+<animation>
+  <type>rotate</type>
+  <object-name>throttlelever</object-name>
+  <property>/controls/engines/engine/throttle</property>
+  <factor>43</factor>
+  <center>
+	<x-m> 0.265</x-m>
+	<y-m> 0.313</y-m>
+	<z-m>-0.0816</z-m>
+  </center>
+ <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- Fuel airpump -->
+
+ <animation>
+  <type>translate</type>
+  <object-name>pumphandle</object-name>
+  <property>/controls/engines/engine/primer-pressed</property>
+  <interpolation>
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>1</ind>
+    <dep>0.17</dep>
+   </entry>
+  </interpolation>
+    <axis>
+      <x1-m> 0.088 </x1-m>
+      <y1-m> -0.269 </y1-m>
+      <z1-m> -0.2472 </z1-m>
+      <x2-m> 0.3034 </x2-m>
+      <y2-m> -0.269</y2-m>
+      <z2-m>  -0.0663 </z2-m>
+    </axis>
+ </animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>pumphandle</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+   <binding>
+    <command>property-adjust</command>
+    <property>/controls/engines/engine[0]/primer</property>
+    <step>0.05</step>
+    <min>0</min>
+    <max>1.0</max>
+    <wrap>false</wrap>
+   </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>controls/engines/engine/primer-pressed</property>
+    <value>true</value>
+    </binding>
+        <mod-up>
+          <binding>
+            <command>property-assign</command>
+      <property>controls/engines/engine/primer-pressed</property>
+    <value>false</value>
+    </binding>
+        </mod-up>
+  </action>
+</animation>
+
+  <!-- Anim of flight surfaces -->
+
+ <!-- rudder, horns and cables -->
+
+    <animation>
+    <name>rudder-cables</name>
+    <object-name>rudder</object-name>
+    <object-name>Lrudd-cable</object-name>
+    <object-name>Rrudd-cable</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>rudder-cables</object-name>
+    <property>controls/flight/rudder</property>
+    <factor>28</factor>
+    <center>
+      <x-m> 4.162 </x-m>
+      <y-m>  0.0 </y-m>
+      <z-m> 0.684 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Rrudd-cable</object-name>
+    <property>controls/flight/rudder</property>
+    <factor>-28</factor>
+    <center>
+      <x-m>4.009</x-m>
+      <y-m> 0.1026  </y-m>
+      <z-m>0.2204</z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+   <animation>
+    <type>rotate</type>
+    <object-name>Lrudd-cable</object-name>
+    <property>controls/flight/rudder</property>
+    <factor>-28</factor>
+    <center>
+      <x-m> 4.009 </x-m>
+      <y-m> -0.1026 </y-m>
+      <z-m> 0.2204 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+    <!-- Elevators, horns and cables -->
+  <animation>
+    <name>elevatorcables</name>
+    <object-name>elevators</object-name>
+    <object-name>upelev-cables</object-name>
+    <object-name>lowelev-cables</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>elevatorcables</object-name>
+    <property>/controls/flight/elevator</property>
+    <factor>17</factor>
+    <center>
+      <x-m>  3.961 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.263 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y>  1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+   <animation>
+    <type>rotate</type>
+    <object-name>upelev-cables</object-name>
+    <property>/controls/flight/elevator</property>
+    <factor>-16.9</factor>
+    <center>
+      <x-m>  4.008 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.370 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y>  1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+   <animation>
+    <type>rotate</type>
+    <object-name>lowelev-cables</object-name>
+    <property>/controls/flight/elevator</property>
+    <factor>-16.9</factor>
+    <center>
+      <x-m>  4.008 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.153 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+<!-- ailerons and cables -->
+
+  <animation>
+    <name>L-upailecables</name>
+    <object-name>leftaileron</object-name>
+    <object-name>L-upailercable</object-name>
+    <object-name>L-trailercable</object-name>
+    <object-name>L-upailerhorn</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>L-upailecables</object-name>
+    <property>surface-positions/left-aileron-pos-norm</property>
+    <factor>12</factor>
+    <axis>
+      <x1-m>  0.1254 </x1-m>
+      <y1-m> -4.303 </y1-m>
+      <z1-m>  1.282 </z1-m>
+      <x2-m>  0.1228 </x2-m>
+      <y2-m> -2.5804 </y2-m>
+      <z2-m>  1.116 </z2-m>
+    </axis>
+  </animation>
+
+    <animation>
+    <name>R-upailecables</name>
+    <object-name>rightaileron</object-name>
+    <object-name>R-upailercable</object-name>
+    <object-name>R-trailercable</object-name>
+    <object-name>R-upailerhorn</object-name>
+  </animation>
+
+   <animation>
+    <type>rotate</type>
+    <object-name>R-upailecables</object-name>
+    <property>surface-positions/right-aileron-pos-norm</property>
+    <factor>-12</factor>
+    <axis>
+      <x1-m>  0.1254 </x1-m>
+      <y1-m>  4.303 </y1-m>
+      <z1-m>  1.282 </z1-m>
+      <x2-m>  0.1228 </x2-m>
+      <y2-m>  2.5804 </y2-m>
+      <z2-m>  1.116 </z2-m>
+    </axis>
+  </animation>
+
+<!-- Left Gear compression -->
+
+<animation>
+    <name>LeftAssemb</name>
+    <object-name>axle</object-name>
+    <object-name>leftwheel</object-name> 
+  </animation>
+
+ <animation>
+  <type>rotate</type>
+  <property>gear/gear[0]/compression-norm</property>
+  <object-name>LeftAssemb</object-name>
+  <interpolation>
+   <entry> <ind>0.0</ind> <dep> -1.25 </dep> </entry>
+   <entry> <ind>0.33</ind> <dep> 1.25 </dep> </entry>
+   <entry> <ind>0.66</ind> <dep> 2.5 </dep> </entry>
+   <entry> <ind>1.0</ind> <dep> 3.75 </dep> </entry>
+  </interpolation>
+  <axis>
+   <x> -1.00</x>
+   <y> 0.00</y>
+   <z> 0.00</z>
+  </axis>
+  <center>
+   <x-m>-0.9395</x-m>
+   <y-m> 0.776 </y-m>
+   <z-m>-1.216</z-m>
+  </center> 
+ </animation>
+
+  <!-- Left Wheel rotation -->
+  <animation>
+    <type>spin</type>
+    <object-name>leftwheel</object-name>
+    <property>gear/gear[0]/rollspeed-ms</property>
+    <factor> 29 </factor>
+    <center>
+    <x-m>-0.9395</x-m>
+   <y-m> -0.914 </y-m>
+   <z-m>-1.216</z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+<!-- Right Gear compression -->
+
+<animation>
+    <name>RightAssemb</name>
+    <object-name>axle</object-name>
+    <object-name>rightwheel</object-name>
+  </animation>
+
+ <animation>
+  <type>rotate</type>
+  <property>gear/gear[1]/compression-norm</property>
+  <object-name>RightAssemb</object-name>
+  <interpolation>
+   <entry> <ind>0.0</ind> <dep> 1.25 </dep> </entry>
+   <entry> <ind>0.33</ind> <dep> -1.25 </dep> </entry>
+   <entry> <ind>0.66</ind> <dep> -2.5 </dep> </entry>
+   <entry> <ind>1.0</ind> <dep> -3.75 </dep> </entry>
+  </interpolation>
+  <axis>
+   <x> -1.00</x>
+   <y> 0.00</y>
+   <z> 0.00</z>
+  </axis>
+  <center>
+   <x-m> -0.9395 </x-m>
+   <y-m> -0.776 </y-m>
+   <z-m> -1.216 </z-m>
+  </center> 
+ </animation>
+
+<!-- Right Wheel rotation -->
+  <animation>
+    <type>spin</type>
+    <object-name>rightwheel</object-name>
+    <property>gear/gear[1]/rollspeed-ms</property>
+    <factor> 29 </factor>
+    <center>  
+   <x-m>-0.9395</x-m>
+   <y-m> 0.914 </y-m>
+   <z-m>-1.216</z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+</PropertyList>
+

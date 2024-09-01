@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+  
+  <fx>
+    
+    <crank> 
+      <name>engstart</name>
+      <path>Aircraft/Bristol-Bulldog-2a/Sounds/starting.wav</path>
+      <property>/engines/engine/cranking</property>
+      <volume> 
+        <property>/orientation/alpha-deg</property>
+        <type>log</type>
+        <min>0.5</min>
+        <max>1.0</max>
+      </volume>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </crank>
+    
+    <crank> 
+      <name>cough</name>
+      <path>Aircraft/Bristol-Bulldog-2a/Sounds/coughing.wav</path>
+      <property>/engines/engine/running</property>
+      <volume> 
+        <property>/orientation/alpha-deg</property>
+        <type>log</type>
+        <min>0.5</min>
+        <max>1.0</max>
+      </volume>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </crank>
+    
+    <engine> 
+      <name>engineslowrun</name>
+      <mode>looped</mode>
+      <path>Aircraft/Bristol-Bulldog-2a/Sounds/idle.wav</path>
+      <condition> 
+        <property>/engines/engine/running</property>
+        <less-than> 
+          <property>/engines/engine/rpm</property>
+          <value> 400 </value>
+        </less-than>
+      </condition>
+      <volume> 
+        <type>log</type>
+        <min> 0.3 </min>
+        <max> 0.5 </max>
+      </volume>
+      <pitch> 
+        <property>/engines/engine/rpm</property>
+        <factor> 0.0027 </factor>
+        <min> 0.27 </min>
+        <max> 0.35 </max>
+        <offset> 0 </offset>
+      </pitch>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </engine>
+    
+    <engine>
+      <name>enginerun</name>
+      <mode>looped</mode>
+      <path>Aircraft/Bristol-Bulldog-2a/Sounds/runhigh.wav</path>
+      <condition>
+        <property>/engines/engine/running</property>
+        <greater-than-equals> 
+          <property>/engines/engine/rpm</property>
+          <value> 400.1 </value>
+        </greater-than-equals>
+      </condition>
+      <volume>
+        <property>/controls/engines/engine/throttle</property>
+        <min> 0.4 </min>
+        <max> 1.8 </max>
+      </volume>
+      <pitch>
+        <property>/engines/engine/rpm</property>
+        <factor> 0.00030 </factor>
+        <min> 0.22 </min>
+        <max> 1.7 </max>
+        <offset> 0.0 </offset>
+      </pitch>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </engine>
+    
+    <rumble>
+      <name>groundroll</name>
+      <mode>looped</mode>
+      <path>Sounds/rumble.wav</path>
+      <condition>
+        <and>
+          <or>
+            <property>/gear/gear[0]/wow</property>
+            <property>/gear/gear[1]/wow</property>
+          </or>
+          <property>/gear/gear[0]/ground-is-solid</property>
+        </and>
+      </condition>
+      <volume>
+        <property>/velocities/groundspeed-kt</property>
+        <factor> 0.4 </factor>
+      </volume>
+      <position>
+        <x> -1.0 </x>
+        <y>  0.0 </y>
+        <z> -2.0 </z>
+      </position>
+      <reference-dist> 2.0 </reference-dist>
+      <max-dist> 5.0 </max-dist>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </rumble>
+    
+    <splash>
+      <name>splash</name>
+      <mode>looped</mode>
+      <path>Sounds/rumble.wav</path>
+      <condition>
+        <and>
+          <or>
+            <property>/gear/gear[0]/wow</property>
+            <property>/gear/gear[1]/wow</property>
+          </or>
+          <not>
+            <property>/gear/gear[0]/ground-is-solid</property>
+          </not>
+        </and>
+      </condition>
+      <volume>
+        <property>/velocities/groundspeed-kt</property>
+        <offset> 0.00 </offset>
+        <factor> 0.02 </factor>
+        <min> 0.0 </min>
+        <max> 0.5 </max>
+      </volume>
+      <pitch>
+        <property>/velocities/airspeed-kt</property>
+        <factor> 0.01 </factor>
+        <offset> 1.20 </offset>
+        <max> 1.5 </max> 
+      </pitch>
+      <position>
+        <x> -1.0 </x>
+        <y>  0.0 </y>
+        <z> -2.0 </z>
+      </position>
+      <reference-dist> 2.0 </reference-dist>
+      <max-dist> 5.0 </max-dist>
+    </splash>
+    
+    <squeal>
+      <name>squeal</name>
+      <path>Sounds/squeal.wav</path>
+      <condition>
+        <or>
+          <property>/gear/gear[0]/wow</property>
+          <property>/gear/gear[1]/wow</property>
+        </or>
+      </condition>
+      <volume>
+        <property>/velocities/speed-down-fps</property>
+        <factor> 0.5 </factor>
+        <max> 1.0 </max>
+      </volume>
+      <volume>
+        <property>/velocities/airspeed-kt</property>
+        <factor> 0.01 </factor>
+        <max> 1.0 </max>
+      </volume>
+      <volume>
+        <internal>dt_stop</internal>
+        <factor> 0.05 </factor>
+        <max> 1.0 </max>
+      </volume>
+      <pitch>
+        <property>/velocities/airspeed-kt</property>
+        <factor> 0.0025 </factor>
+        <offset> 0.5000 </offset>
+        <max> 1.0 </max>
+      </pitch>
+      <position>
+        <x> -1.0 </x>
+        <y>  0.0 </y>
+        <z> -2.0 </z>
+      </position>
+      <reference-dist> 5.0 </reference-dist>
+      <max-dist> 10.0 </max-dist>
+    </squeal>
+    
+    <wind>
+      <name>wind</name>
+      <mode>looped</mode>
+      <path>Sounds/windwires.wav</path>
+      <property>velocities/airspeed-kt</property>
+      <volume>
+        <property>position/altitude-ft</property>
+        <factor> -0.000015 </factor>
+        <offset>  1.000000 </offset>
+        <min> 0.1 </min>
+        <max> 1.0 </max>
+      </volume>
+      <volume>
+        <property>velocities/airspeed-kt</property>
+        <factor> 0.0015 </factor>
+        <min> 0.03 </min>
+        <max> 0.25 </max>
+      </volume>
+      <pitch>
+        <property>velocities/airspeed-kt</property>
+        <factor> 0.01 </factor>
+        <offset> 1.00 </offset>
+      </pitch>
+      <position>
+        <x> 0 </x>
+        <y> 0 </y>
+        <z> 0 </z>
+      </position>
+      <max-dist> 2 </max-dist>
+      <reference-dist> 1 </reference-dist>
+    </wind>
+    
+    <stall>
+      <name>stall</name>
+      <mode>looped</mode>
+      <path>Aircraft/Bristol-Bulldog-2a/Sounds/stallbuffet.wav</path>
+      <condition>
+        <and>
+          <property>/sim/alarms/stall-warning</property>
+          <greater-than>
+            <property>/velocities/airspeed-kt</property>
+            <value>10</value>
+          </greater-than>
+          <not>
+            <property>/gear/gear[0]/wow</property>
+            <property>/gear/gear[1]/wow</property>
+            <property>/gear/gear[2]/wow</property>
+          </not>
+        </and>
+      </condition>
+      <volume>
+        <property>/sim/alarms/stall-warning</property>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>10.0</reference-dist>
+      <max-dist>20.0</max-dist>
+    </stall>
+    
+    <!--                  Toggle Switches                  -->     
+    <switch>
+      <name>click on</name>
+      <mode>once</mode>
+      <path>Sounds/click.wav</path>
+      <condition>
+        <property>sim/Sounds/switch</property>
+      </condition>
+      <volume>
+        <offset> 0.7 </offset>
+      </volume>
+      <position>
+        <x> -0.5 </x>
+        <y>  0.0 </y>
+        <z>  0.0 </z>
+      </position>
+      <reference-dist> 2.0 </reference-dist>
+      <max-dist> 4.0 </max-dist>
+    </switch>
+    
+    <switch>
+      <name>click off</name>
+      <mode>once</mode>
+      <path>Sounds/click.wav</path>
+      <condition>
+        <not>
+          <property>sim/Sounds/switch</property>
+        </not>
+      </condition>
+      <volume>
+        <offset> 0.7 </offset>
+      </volume>
+      <position>
+        <x> -0.5 </x>
+        <y>  0.0 </y>
+        <z>  0.0 </z>
+      </position>
+      <reference-dist> 2.0 </reference-dist>
+      <max-dist> 4.0 </max-dist>
+    </switch>
+      
+    <gun>
+      <name>Gun up left</name>
+      <mode>looped</mode>
+      <path>Aircraft/Bristol-Bulldog-2a/Sounds/gunfire.wav</path>
+      <condition>
+        <and>
+          <property>controls/armament/trigger</property>
+          <property>ai/submodels/submodel[0]/count</property>
+        </and>
+      </condition>
+      <position>
+        <x> -3.469 </x>
+        <y> -0.260 </y>
+        <z>  0.586 </z>
+      </position>
+      <reference-dist>100</reference-dist>
+      <max-dist>500</max-dist>
+    </gun>
+    
+    <gun>
+      <name>Gun up right</name>
+      <mode>looped</mode>
+      <path>Aircraft/Bristol-Bulldog-2a/Sounds/gunfire.wav</path>
+      <condition>
+        <and>
+          <property>controls/armament/trigger</property>
+          <property>ai/submodels/submodel[0]/count</property>
+        </and>
+      </condition>
+      <position>
+        <x> -3.469 </x>
+        <y>  0.260 </y>
+        <z>  0.586 </z>
+      </position>
+      <reference-dist>100</reference-dist>
+      <max-dist>500</max-dist>
+    </gun>
+    
+  </fx>
+  
+</PropertyList>

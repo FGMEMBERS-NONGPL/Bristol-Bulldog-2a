@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <path>Clock.ac</path>
+
+<effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+      <object-name>vitre</object-name>
+    </effect>
+
+
+ <animation>
+  <type>material</type>
+  <object-name>Face</object-name>
+  <object-name>Seconds</object-name>
+  <object-name>Minutes</object-name>
+  <object-name>Hours</object-name>
+  <emission>
+   <red>0.8</red>
+   <green>0.8</green>
+   <blue>0.8</blue>
+   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+  </emission>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Seconds</object-name>
+  <property>/sim/time/utc/day-seconds</property>
+  <factor>6</factor>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+  <center>
+   <x-m>0.00</x-m>
+   <y-m>0.00</y-m>
+   <z-m>0.0123</z-m>
+  </center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Minutes</object-name>
+  <property>/sim/time/utc/day-seconds</property>
+  <factor>0.1</factor>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Hours</object-name>
+  <property>/sim/time/utc/day-seconds</property>
+  <factor>0.008333</factor>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

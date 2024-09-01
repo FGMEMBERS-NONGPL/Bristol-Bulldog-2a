@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>panel</object-name>
+
+    <!-- Objets transparents -->
+  </animation>
+
+  <!-- AirSpeed -->
+  <model>
+    <path>Aircraft/Bristol-Bulldog-2a/Models/instruments/asi.xml</path>
+    <offsets>
+      <x-m>  -0.185 </x-m>
+      <y-m> -0.0976 </y-m>
+      <z-m>  0.586 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Altimeter -->
+   <model>
+    <path>Aircraft/Bristol-Bulldog-2a/Models/instruments/altimeter.xml</path>
+    <offsets>
+      <x-m>  -0.185 </x-m>
+      <y-m> -0.2509 </y-m>
+      <z-m>  0.505 </z-m>
+    </offsets>
+   </model>
+
+
+  <!-- Turn -->
+   <model>
+    <path>Aircraft/Bristol-Bulldog-2a/Models/instruments/turn.xml</path>
+    <offsets>
+      <x-m>  -0.185 </x-m>
+      <y-m> 0.119 </y-m>
+      <z-m>  0.578 </z-m>
+    </offsets>
+   </model>
+
+  <!-- VSI -->
+  <model>
+    <path>Aircraft/Bristol-Bulldog-2a/Models/instruments/vsi.xml</path>
+    <offsets>
+      <x-m>  -0.185 </x-m>
+      <y-m> -0.0966 </y-m>
+      <z-m>  0.430 </z-m>
+    </offsets>
+  </model>
+ 
+  <!-- Clock -->
+  <model>
+    <path>Aircraft/Bristol-Bulldog-2a/Models/instruments/Clock.xml</path>
+    <offsets>
+      <x-m>  -0.185 </x-m>
+      <y-m>   0.109 </y-m>
+      <z-m>  0.430 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Compass -->
+   <model>
+    <path>Aircraft/Bristol-Bulldog-2a/Models/instruments/compass-p11.xml</path>
+    <offsets>
+      <x-m> -0.253 </x-m>
+      <y-m> -0.0930 </y-m>
+      <z-m> -0.240 </z-m>
+    </offsets>
+   </model>
+
+<!-- fuel tank gauge left -->
+  <!-- model>
+  <path>Aircraft/Bristol-Bulldog-2a/Models/instruments/fuel-left.xml</path>
+    <offsets>
+      <x-m> -0.022 </x-m>
+      <y-m> -1.410 </y-m>
+      <z-m> 0.857 </z-m>
+    </offsets>
+  </model -->
+
+<!-- fuel tank gauge right -->
+  <!-- model>
+  <path>Aircraft/Bristol-Bulldog-2a/Models/instruments/fuel-right.xml</path>
+    <offsets>
+      <x-m> -0.022 </x-m>
+      <y-m> 1.410 </y-m>
+      <z-m> 0.857 </z-m>
+    </offsets>
+  </model -->
+
+  <model>
+  <path>Aircraft/Bristol-Bulldog-2a/Models/instruments/eng-rev-s.xml</path>
+    <offsets>
+      <x-m> -0.175 </x-m>
+      <y-m> 0.005 </y-m>
+      <z-m> 0.456 </z-m>
+    </offsets>
+  </model>
+
+<!-- Engine temperature -->
+
+  <model>
+  <path>Aircraft/Bristol-Bulldog-2a/Models/instruments/eng-temp-s.xml</path>
+    <offsets>
+      <x-m> -0.183 </x-m>
+      <y-m> -0.21 </y-m>
+      <z-m> 0.402 </z-m>
+    </offsets>
+  </model>
+
+<!-- Engine oil temperature -->
+
+  <model>
+  <path>Aircraft/Bristol-Bulldog-2a/Models/instruments/oil-press-s.xml</path>
+    <offsets>
+      <x-m> -0.183 </x-m>
+      <y-m> -0.299 </y-m>
+      <z-m> 0.402 </z-m>
+    </offsets>
+  </model>
+
+<!-- Engine oil pressure -->
+
+  <model>
+  <path>Aircraft/Bristol-Bulldog-2a/Models/instruments/oil-temp-s.xml</path>
+    <offsets>
+      <x-m> -0.183 </x-m>
+      <y-m> -0.370 </y-m>
+      <z-m> 0.402 </z-m>
+    </offsets>
+  </model>
+
+<!-- navigation light switch -->
+  <!-- model>
+  <path>Aircraft/Bristol-Bulldog-2a/Models/Panel/Instruments/navswitch.xml</path>
+    <offsets>
+      <x-m> -0.173 </x-m>
+      <y-m> -0.228 </y-m>
+      <z-m> 0.397 </z-m>
+    </offsets>
+  </model -->
+
+
+<!-- magneto right switch -->
+  <model>
+  <path>Aircraft/Bristol-Bulldog-2a/Models/instruments/magneto.xml</path>
+    <offsets>
+      <x-m> -0.17 </x-m>
+      <y-m> 0.226 </y-m>
+      <z-m> 0.409 </z-m>
+    </offsets>
+  </model>
+
+  
+</PropertyList>

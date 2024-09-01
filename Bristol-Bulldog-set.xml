@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+   <sim include="Nasal/views.xml"> 
+
+   <description>Bristol-Bulldog-IIa</description>
+   <author>LesterBoffo FDM/3D Models/Alphasim</author>
+   <status>alpha</status>
+   
+  <rating>
+    <FDM type="int">3</FDM>
+    <systems type="int">2</systems>
+    <model type="int">3</model>
+    <cockpit type="int">3</cockpit>
+  </rating>
+  
+    <previews>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>Previews/bbiia-0.jpg</path>
+      </preview>
+      <preview>
+        <type>interior</type>
+        <splash type="bool">true</splash>
+        <path>Previews/bbiia-1.jpg</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>Previews/bbiia-2.jpg</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>Previews/bbiia-3.jpg</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>Previews/bbiia-4.jpg</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>Previews/bbiia-5.jpg</path>
+      </preview>
+    </previews>
+
+   <tags>
+   <tag>fighter-trainer</tag>
+   <tag>bristol</tag>
+   <tag>propeller</tag>
+   <tag>single-engine</tag>
+   <tag>biplane</tag>
+   <tag>post-WWI</tag>
+   <tag>mp-combat</tag>
+  </tags>
+
+   <flight-model archive="y">yasim</flight-model>
+   <aero archive="y">Bristol-Bulldog-yasim</aero>
+
+   <startup>
+    <splash-title> Bristol-Bulldog 3D model and textures from FS2004 Alphasim
+
+    Released as a Creative Commons Artist Attribute Non-Commercial use </splash-title>
+    <splash-texture>Aircraft/Bristol-Bulldog-2a/splash.png</splash-texture>
+    <units>meters</units>
+    <fuel-fraction>0.8</fuel-fraction>
+   </startup>
+
+  <sound>
+      <path>Aircraft/Bristol-Bulldog-2a/Sounds/Bristol-Bulldog-sound.xml</path>
+    </sound>
+
+  <model>
+   <path>Aircraft/Bristol-Bulldog-2a/Models/Bristol-Bulldog2a.xml</path>
+      <livery>
+         <file type="string">default</file>
+      </livery>
+  </model>
+
+  <submodels> 
+      <serviceable type="bool">true</serviceable>
+      <path>Aircraft/Bristol-Bulldog-2a/Models/Effects/guns/submodels.xml</path>
+   </submodels>
+
+ <systems>
+    <property-rule n="100">
+       <name>gear_agl_m</name>
+       <path>Aircraft/Bristol-Bulldog-2a/Systems/gear-AGL.xml</path>
+    </property-rule>
+</systems>  
+   
+    <menubar include="Dialogs/Bristol-Bulldog-2a-menu.xml"/> 
+
+  <!-- Payload -->
+  <weight n="0">
+      <name>Pilot</name>
+      <weight-lb>160</weight-lb>
+      <max-lb>190</max-lb>
+      <min-lb>120</min-lb>
+  </weight> 
+
+ </sim>
+ 
+   <input>
+   <keyboard include="Nasal/bristol-bulldog2a-keyboard.xml"/>
+  </input>
+
+ <controls>
+	<gear>
+		<brake-parking type="double">1.0</brake-parking>
+	</gear>
+  <engines>
+      <engine n="0">
+        <magnetos>0</magnetos>
+        <!-- <mixture>0.05</mixture> -->
+        <primer type="double">0.05</primer>
+        <primer-pressed type="bool">0.0</primer-pressed>
+   </engine>
+  </engines>
+ </controls>
+  
+  <nasal>
+    <guns>
+      <file>Aircraft/Bristol-Bulldog-2a/Nasal/weapons.nas</file>
+      <file>Aircraft/Bristol-Bulldog-2a/Nasal/revi.nas</file>
+    </guns>
+    <Bristol-Bulldog-2a>
+       <file>Aircraft/Bristol-Bulldog-2a/Nasal/handpump.nas</file>
+     </Bristol-Bulldog-2a>
+     <liveries>
+     <file>Aircraft/Bristol-Bulldog-2a/Nasal/liveries.nas</file>
+     </liveries>
+  </nasal>
+
+</PropertyList>
